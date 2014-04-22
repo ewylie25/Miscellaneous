@@ -1,0 +1,560 @@
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Script is running, logging events to rxn_retrieve_and_balance_20140422_1605.log
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering balance function.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Starting Smiles:CCc1ccncc1>>CCC1CCNCC1.CCC1=CCNCC1
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 7, 'N': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Difference: Counter({'N': -1, 'C': -7})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 7, 'N': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 7, 'N': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 7, 'N': 1})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Atoms needed on reactant side: Counter({'C': 7, 'N': 1})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Atoms needed on product side: Counter()
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Candidate reactants: [Counter({'C': 7, 'N': 1})]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Candidate products: None
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering find_decomposition.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: leaving find_decomposition - Successful
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Decomp: [(Counter({'C': 7, 'N': 1}), array([ 1.]))]
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering update.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving update with change.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Updated to: ['CCc1ccncc1', 'CCc1ccncc1']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Reactant atom totals: Counter({'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Product atom totals: Counter({'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: New and balanced.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering balance function.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Starting Smiles:CCc1ccncc1>>CCC1CCNCC1.CCC1=CCNCC1
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 9 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 15 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 13 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 9, 'C': 7, 'N': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 28, 'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Difference: Counter({'N': -1, 'C': -7, 'H': -19})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 9 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 9, 'C': 7, 'N': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 15 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 15, 'C': 7, 'N': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 13 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 13, 'C': 7, 'N': 1})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Atoms needed on reactant side: Counter({'H': 19, 'C': 7, 'N': 1})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Atoms needed on product side: Counter()
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Candidate reactants: [Counter({'H': 9, 'C': 7, 'N': 1})]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Candidate products: None
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering find_decomposition.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: leaving find_decompositions - Failure
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering update.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving update with no change.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: No change.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering balance function.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Starting Smiles:O=Cc1ccsc1>>O=C(c1ccsc1)C(O)c1ccsc1
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C', 'C', 'O', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 5, 'S': 1, 'O': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 10, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Difference: Counter({'S': -1, 'O': -1, 'C': -5})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 5, 'S': 1, 'O': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C', 'C', 'O', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 10, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Atoms needed on reactant side: Counter({'C': 5, 'S': 1, 'O': 1})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Atoms needed on product side: Counter()
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Candidate reactants: [Counter({'C': 5, 'S': 1, 'O': 1})]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Candidate products: None
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering find_decomposition.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: leaving find_decomposition - Successful
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Decomp: [(Counter({'C': 5, 'S': 1, 'O': 1}), array([ 1.]))]
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering update.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving update with change.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Updated to: ['O=Cc1ccsc1', 'O=Cc1ccsc1']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C', 'O', 'C', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C', 'C', 'O', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 10, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 10, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Reactant atom totals: Counter({'C': 10, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Product atom totals: Counter({'C': 10, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: New and balanced.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering balance function.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Starting Smiles:O=Cc1ccsc1>>O=C(c1ccsc1)C(O)c1ccsc1
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 4 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 8 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C', 'C', 'O', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 5, 'H': 4, 'S': 1, 'O': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 10, 'H': 8, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Difference: Counter({'S': -1, 'O': -1, 'H': -4, 'C': -5})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 4 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 5, 'H': 4, 'S': 1, 'O': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C', 'C', 'O', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 8 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 10, 'H': 8, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Atoms needed on reactant side: Counter({'C': 5, 'H': 4, 'S': 1, 'O': 1})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Atoms needed on product side: Counter()
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Candidate reactants: [Counter({'C': 5, 'H': 4, 'S': 1, 'O': 1})]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Candidate products: None
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering find_decomposition.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: leaving find_decomposition - Successful
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Decomp: [(Counter({'C': 5, 'H': 4, 'S': 1, 'O': 1}), array([ 1.]))]
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering update.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving update with change.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Updated to: ['O=Cc1ccsc1', 'O=Cc1ccsc1']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C', 'O', 'C', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C', 'C', 'O', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 4 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 4 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 8 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 10, 'H': 8, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 10, 'H': 8, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Reactant atom totals: Counter({'C': 10, 'H': 8, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Product atom totals: Counter({'C': 10, 'H': 8, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: New and balanced.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering balance function.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Starting Smiles:C1OCOCO1>>C=O
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'O', 'C', 'O', 'C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 1, 'O': 1})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Difference: Counter({'C': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'O', 'C', 'O', 'C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 1, 'O': 1})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Atoms needed on reactant side: Counter()
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Atoms needed on product side: Counter({'C': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Candidate reactants: None
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Candidate products: [Counter({'C': 1, 'O': 1})]
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering find_decomposition.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: leaving find_decomposition - Successful
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Decomp: [(Counter({'C': 1, 'O': 1}), array([ 2.]))]
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering update.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving update with change.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Updated to: ['C=O', 'C=O', 'C=O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'O', 'C', 'O', 'C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'O', 'C', 'O', 'C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Reactant atom totals: Counter({'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Product atom totals: Counter({'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: New and balanced.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering balance function.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Starting Smiles:C1OCOCO1>>C=O
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 6 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 2 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'O', 'C', 'O', 'C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 6, 'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 2, 'C': 1, 'O': 1})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Difference: Counter({'H': 4, 'C': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'O', 'C', 'O', 'C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 6 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 6, 'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 2 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 2, 'C': 1, 'O': 1})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Atoms needed on reactant side: Counter()
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Atoms needed on product side: Counter({'H': 4, 'C': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Candidate reactants: None
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Candidate products: [Counter({'H': 2, 'C': 1, 'O': 1})]
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering find_decomposition.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: leaving find_decomposition - Successful
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Decomp: [(Counter({'H': 2, 'C': 1, 'O': 1}), array([ 2.]))]
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering update.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving update with change.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Updated to: ['C=O', 'C=O', 'C=O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'O', 'C', 'O', 'C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'O', 'C', 'O', 'C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 6 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 2 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 2 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 2 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 6, 'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 6, 'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Reactant atom totals: Counter({'H': 6, 'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Product atom totals: Counter({'H': 6, 'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: New and balanced.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering balance function.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Starting Smiles:CC1CCCCC1CO.O=O>>CC1CCCCC1C(=O)O
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'O', 'O', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'O', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 8, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 8, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Difference: Counter({'O': 1, 'C': 0})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 8, 'O': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'O', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 8, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Atoms needed on reactant side: Counter()
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Atoms needed on product side: Counter({'O': 1})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Candidate reactants: None
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Candidate products: []
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: No Candidates.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering balance function.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Starting Smiles:CC1CCCCC1CO.O=O>>CC1CCCCC1C(=O)O
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 16 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 0 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 14 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'O', 'O', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'O', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 16, 'C': 8, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 14, 'C': 8, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Difference: Counter({'H': 2, 'O': 1, 'C': 0})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 16 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 16, 'C': 8, 'O': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 0 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'O', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 14 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 14, 'C': 8, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Atoms needed on reactant side: Counter()
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Atoms needed on product side: Counter({'H': 2, 'O': 1})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Candidate reactants: None
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Candidate products: []
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: No Candidates.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 7, 'N': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Reactant atom totals: Counter({'C': 7, 'N': 1})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Product atom totals: Counter({'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Reactant atom totals: Counter({'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Product atom totals: Counter({'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 9 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 9 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 15 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 13 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 18, 'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 28, 'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Reactant atom totals: Counter({'H': 18, 'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Product atom totals: Counter({'H': 28, 'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C', 'O', 'C', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C', 'C', 'O', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 10, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 10, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Reactant atom totals: Counter({'C': 10, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Product atom totals: Counter({'C': 10, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C', 'O', 'C', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C', 'C', 'O', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 4 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 4 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 8 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 10, 'H': 8, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 10, 'H': 8, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Reactant atom totals: Counter({'C': 10, 'H': 8, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Product atom totals: Counter({'C': 10, 'H': 8, 'S': 2, 'O': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'O', 'C', 'O', 'C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'O', 'C', 'O', 'C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 6 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 2 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 2 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 2 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 6, 'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 6, 'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Reactant atom totals: Counter({'H': 6, 'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Product atom totals: Counter({'H': 6, 'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'O', 'C', 'O', 'C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'O']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 6 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 2 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 6, 'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 2, 'C': 1, 'O': 1})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Reactant atom totals: Counter({'H': 6, 'C': 3, 'O': 3})
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Product atom totals: Counter({'H': 2, 'C': 1, 'O': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving check_balance function.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering check_entry.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Yield field: 0.75
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: RXID field of entry: [57186, 6946560]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Key: rx57186
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Key: rx6946560
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving check_entry under final condition.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering check_entry.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Yield field: 0.75
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: RXID field of entry: [1598453]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Key: rx1598453
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Key entry: [{u'condition': u'24 h;  ', u'yield': [0.91], u'cit': [u'Mulliez, M. Phosphorus and Sulfur and the Related Elements,   1980 ,  vol. 8,  p. 27 - 36        ']}]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: [[0.91]]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: [True]
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving check_entry under third condition.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering check_entry.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Yield field: 0.75
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: RXID field of entry: [1598806]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Key: rx1598806
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Key entry: [{u'condition': u'3 h; Heating;  ', u'yield': [0.64], u'cit': [u'Bukowski, L.; Janowiec, M. Pharmazie,   1988 ,  vol. 43,  # 5   p. 315 - 317        ']}]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: [[0.64]]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: [True]
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving check_entry under third condition.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering check_entry.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Yield field: 0.75
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: RXID field of entry: [39059]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Key: rx39059
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving check_entry under final condition.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 9, 'C': 7, 'N': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 28, 'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'H': 13, 'C': 7, 'N': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 7, 'N': 1})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering count
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving count, counted: Counter({'C': 14, 'N': 2})
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering find_decomposition.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: leaving find_decomposition - Successful
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Decomp: [(Counter({'C': 7, 'N': 1}), array([ 1.]))]
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering find_decomposition.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: leaving find_decomposition - Successful
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Decomp: [(Counter({'C': 1, 'O': 1}), array([ 2.]))]
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering generate_data
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Yield field of entry: [0.75]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: RXID field of entry: [57186, 6946560]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: All yields: [0.75]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Good yields: []
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving generate_data with data: []
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering generate_data
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Yield field of entry: [0.75]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: RXID field of entry: [1598453]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: All yields: [0.75, [0.91]]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Good yields: [[0.91]]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Temp: [80508, u'CN1C(=O)C(=O)N(C)P1(=O)Oc1ccccc1.CO>>CNC(=O)C(=O)N(C)P(=O)(OC)Oc1ccccc1', '000', '0.0', '0.0', 0.91]
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving generate_data with data: [['80508', 'CN1C(=O)C(=O)N(C)P1(=O)Oc1ccccc1.CO>>CNC(=O)C(=O)N(C)P(=O)(OC)Oc1ccccc1', '000', '0.0', '0.0', '0.91']]
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering generate_data
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Yield field of entry: [0.75]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: RXID field of entry: [1598806]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: All yields: [0.75, [0.64]]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Good yields: [[0.64]]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Temp: [80857, u'Cl.Cc1ccnc2nc3c(=O)n4c(nc5nccc(C)c54)c(=O)n3c21.CO>>COC(=O)c1nc2c(nccc2C)[nH]1', '000', '0.0', '0.0', 0.64]
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving generate_data with data: [['80857', 'Cl.Cc1ccnc2nc3c(=O)n4c(nc5nccc(C)c54)c(=O)n3c21.CO>>COC(=O)c1nc2c(nccc2C)[nH]1', '000', '0.0', '0.0', '0.64']]
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering generate_data
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Yield field of entry: [0.75]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: RXID field of entry: [39059]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: All yields: [0.75]
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Good yields: []
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving generate_data with data: []
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['O', 'C', 'C', 'C', 'C', 'S', 'C', 'C', 'O', 'C', 'C', 'C', 'S', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_atom_info
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_atom_info, listed: ['C', 'C', 'C', 'C', 'C', 'N', 'C', 'C']
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 4 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 9 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 8 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering get_Hs
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving get_Hs, totaled 15 hydrogens.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Entering update.
+rxn_retrieve_and_balance_20140422_1605.log: INFO: Leaving update with change.
+rxn_retrieve_and_balance_20140422_1605.log: DEBUG: Updated to: ['CCc1ccncc1', 'CCc1ccncc1']
