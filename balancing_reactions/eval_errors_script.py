@@ -15,7 +15,7 @@ from balancer import *
 import json
 
 
-def test_balance(smiles, explicit_h):
+def test_balance(smiles, explicit_h=False):
     """
     Function based off of balance function to return all attempts including incorrectly balanced reactions.
     """
@@ -37,8 +37,12 @@ def test_balance(smiles, explicit_h):
     product_symbols = get_atom_info(products)
 
     # Find the in-balances
-    difference = count(reactant_symbols, reactant_hs).subtract(count(product_symbols, product_hs)) if \
-            explicit_h else count(reactant_symbols).subtract(count(product_symbols))
+    if explicit_h:
+        difference = count(reactant_symbols, reactant_hs)
+        difference.subtract(count(product_symbols, product_hs))
+    else:
+        difference = count(reactant_symbols)
+        difference.subtract(count(product_symbols))
 
     # Get list of atoms by molecule as atomic symbols
     reactants_atom_totals = [count(get_atom_info(i), get_Hs(i)) if explicit_h
@@ -69,7 +73,7 @@ def test_balance(smiles, explicit_h):
 
     # Try to balance and update lists as we go.
     if not p_candidates and not r_candidates:
-        return "Missing chemical"
+        return None
     elif not p_candidates:
         prelim = find_decomposition(r_candidates, atoms_needed_reactant)
         new_reactant_smiles = update(prelim, reactants_atom_totals, new_reactant_smiles)
@@ -88,15 +92,18 @@ def test_balance(smiles, explicit_h):
 
 
 def main(int_count):
-    db = MongoClient().new_data
+    db = MongoClient(host="129.105.205.35").new_data
     results = []
     counts = defaultdict(int)
     for entry in db.reaction.find(snapshot=True).limit(int_count):
         new_reaction = test_balance(entry['smiles'])
-        if check_balance(new_reaction, False):
-            counts['balanced'] += 1
+        if not new_reaction:
+            counts['no_change'] += 1
         else:
-            counts['unbalanced'] += 1
+            if check_balance(new_reaction, False):
+                counts['balanced'] += 1
+            else:
+                counts['unbalanced'] += 1
         results.append({'original': entry['smiles'],
                         'new': new_reaction})
 
@@ -107,5 +114,5 @@ def main(int_count):
 
 
 if __name__ == '__main__':
-    count = sys.argv[1]
-    main(int(count))
+    c = sys.argv[1]
+    main(int(c))
