@@ -92,7 +92,7 @@ def test_balance(smiles, explicit_h=False):
 
 
 def main(int_count):
-    db = MongoClient(host="129.105.205.35").new_data
+    db = MongoClient().new_data
     results = []
     counts = defaultdict(int)
     for entry in db.reaction.find(snapshot=True).limit(int_count):
