@@ -1,0 +1,36 @@
+{
+    "My SQL":{
+        "host": "localhost",
+        "database": "test",
+        "user": "auser",
+        "password": "apass"
+    },
+    "Data":{
+        "google": {
+            "line delimiter": "\n",
+            "field delimiter": ",",
+            "url": "http://www.google.com/finance/historical?cid=304466804484872&startdate=Jan+1%2C+2012&enddate=Feb+29%2C+2012&num=30&hl=en&ei=Q_Z8U_jGBcaOrQHVhoCwAg&output=csv",
+            "fields":[
+                {"name":"date", "type": "DATE"},
+                {"name":"open", "type": "FLOAT"},
+                {"name":"high", "type": "FLOAT"},
+                {"name":"low", "type": "FLOAT"},
+                {"name":"close", "type": "FLOAT"},
+                {"name":"volume", "type": "INT"}
+            ]
+        },
+        "apple": {
+            "line delimiter": "\n",
+            "field delimiter": ",",
+            "url": "http://www.google.com/finance/historical?cid=22144&startdate=Jan+1%2C+2012&enddate=Feb+29%2C+2012&num=30&hl=en&ei=BfV8U6ixB4iqrQG06YHYCg&output=csv",
+            "fields":[
+                {"name":"date", "type": "DATE"},
+                {"name":"open", "type": "FLOAT"},
+                {"name":"high", "type": "FLOAT"},
+                {"name":"low", "type": "FLOAT"},
+                {"name":"close", "type": "FLOAT"},
+                {"name":"volume", "type": "INT"}
+            ]
+        }
+    }
+}

@@ -6,12 +6,17 @@
  * Time: 12:32 PM
  */
 
-include 'helper_functions.php';
-include 'correlationcalculation.php';
+require 'helper_functions.php';
+require 'CorrelationCalculator.php';
 
-$success = \sbbrg_project\generate_database_from_CSV();
+$raw = file_get_contents('parameters.json');
+$parameters = json_decode($raw, true);
+
+//print_r($parameters);
+
+$success = \sbbrg_project\generate_database_from_CSV($parameters);
 if (!$success){
-    die("Could not generate databases");
+    die("Could not generate databases with given parameters in parameters.json");
 }
 
 print "Opening Prices correlation: ";
