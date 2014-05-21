@@ -9,7 +9,6 @@
 namespace sbbrg_project;
 
 
-
 /***
  * Function to generate MySQL database for analysis from CSV files online
  * @param associative array $parameters
@@ -22,7 +21,7 @@ function generate_database_from_CSV($parameters){
     #Initialize variable to keep track of status
     $success = false;
 
-    # My SQL $user@'%' with $pass, granted all privileges on test.* used for this script.
+    # Retrieve database parameters as specified in parameters.json
     $host = $parameters["My SQL"]["host"];
     $db = $parameters["My SQL"]["database"];
     $user = $parameters["My SQL"]["user"];
@@ -37,7 +36,7 @@ function generate_database_from_CSV($parameters){
         return $success;
     }
 
-    # Add data to database tables - close connection at end and if errors
+    # Add data to database - close connection at end and if errors
     try{
         # DB settings and connection settings and style adapted from PHP Data Objects Manual - https://php.net/manual/en/book.pdo.php
         $dbh->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
@@ -51,16 +50,32 @@ function generate_database_from_CSV($parameters){
             $fieldseparator = $dataset["field delimiter"];
             $lineseparator = $dataset["line delimiter"];
 
+            # Create My SQL column definitions for given data set
+            $definition = "";
+            $field_string = "";
+            $param_string = "";
+            foreach($dataset["fields"] as $field){
+                $definition = $definition." ".$field["name"]." ".$field["type"].",";
+                $field_string = $field_string." ".$field["name"].",";
+                $param_string = $param_string.' :'.$field["name"].",";
+            }
+            $definition = trim($definition, ',');
+            $field_string = trim($field_string, ',');
+            $param_string = trim($param_string, ',');
+
             # Create My SQL table
             $dbh->beginTransaction();
-            $dbh->exec("CREATE TABLE $databasetable (date DATE, open FLOAT, high FLOAT, low FLOAT, close FLOAT, volume INT)");
+            $dbh->exec("CREATE TABLE $databasetable ($definition)");
             $dbh->commit();
 
             # Prepare My SQL statement
-            $stmt = $dbh->prepare("INSERT INTO $databasetable (date, open, high, low, close, volume) VALUES (:date, :open, :high, :low, :close, :volume)");
+            $stmt = $dbh->prepare("INSERT INTO $databasetable ($field_string) VALUES ($param_string)");
 
             # Bind parameters - there doesn't seem to be a binding for float or date - utilizing default of string.
-            # TODO: Figure out proper way to bind float and date parameters...assuming this isn't it.
+            # TODO: Figure out proper way to bind parameters dynamically.
+            //foreach($dataset["fields"] as $field){
+
+           // }
             $stmt->bindParam(':date', $date);
             $stmt->bindParam(':open', $open);
             $stmt->bindParam(':close', $close);

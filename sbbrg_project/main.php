@@ -1,9 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
  * User: liz
  * Date: 5/20/14
- * Time: 12:32 PM
  */
 
 require 'helper_functions.php';
@@ -11,8 +9,6 @@ require 'CorrelationCalculator.php';
 
 $raw = file_get_contents('parameters.json');
 $parameters = json_decode($raw, true);
-
-//print_r($parameters);
 
 $success = \sbbrg_project\generate_database_from_CSV($parameters);
 if (!$success){
