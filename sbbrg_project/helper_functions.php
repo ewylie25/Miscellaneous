@@ -28,8 +28,8 @@ function generate_database_from_CSV(){
 
     # Links download separate csv files containing price data from Jan-1-2012 to Jan-31-2012 for GOOG and AAPL, respectively, from Google Finance Historical Prices.
     # Returns file contents as string - I believe/hope these are persistent links
-    $googleData = file_get_contents("http://www.google.com/finance/historical?cid=304466804484872&startdate=Jan+1%2C+2012&enddate=Jan+31%2C+2012&num=30&ei=uG9xU7G_OdLeqAH3_IBY&output=csv");
-    $yahooData = file_get_contents("http://www.google.com/finance/historical?cid=22144&startdate=Jan+1%2C+2012&enddate=Jan+31%2C+2012&num=30&ei=bnFxU5DIAo3cqQHk7oDoBA&output=csv");
+    $googleData = file_get_contents("http://www.google.com/finance/historical?cid=304466804484872&startdate=Jan+1%2C+2012&enddate=Feb+29%2C+2012&num=30&hl=en&ei=Q_Z8U_jGBcaOrQHVhoCwAg&output=csv");
+    $appleData = file_get_contents("http://www.google.com/finance/historical?cid=22144&startdate=Jan+1%2C+2012&enddate=Feb+29%2C+2012&num=30&hl=en&ei=BfV8U6ixB4iqrQG06YHYCg&output=csv");
 
     # Establish persistent connection to database, test on localhost. Prints error and returns false if fails.
     try{
@@ -50,15 +50,15 @@ function generate_database_from_CSV(){
         $lineseparator = "\n";
 
         # Iterate through each data set
-        foreach(array($googleData,$yahooData) as $csvdata){
+        foreach(array($googleData,$appleData) as $csvdata){
 
             # Set table name based on which data set being used
             switch($csvdata){
                 case($googleData):
                     $databasetable = 'google';
                     break;
-                case($yahooData):
-                    $databasetable = 'yahoo';
+                case($appleData):
+                    $databasetable = 'apple';
             }
 
             # Create My SQL table

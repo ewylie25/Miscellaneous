@@ -13,7 +13,7 @@ class CorrelationCalculation {
     public $price_type;
     private $correlation;
     private $google_data;
-    private $yahoo_data;
+    private $apple_data;
 
     public function __construct($price_type){
         # Set column of data to look at
@@ -29,16 +29,16 @@ class CorrelationCalculation {
 
         # I was a little concerned about the stats extension because it isn't very documented... totally works fine
         //$google_sd = $this->getStdDev($this->google_data);
-        //$yahoo_sd = $this->getStdDev($this->yahoo_data);
-        //$covariance = $this->getCovariance($this->google_data, $this->yahoo_data);
-        //$this->correlation = $covariance/($google_sd*$yahoo_sd);
+        //$apple_sd = $this->getStdDev($this->apple_data);
+        //$covariance = $this->getCovariance($this->google_data, $this->apple_data);
+        //$this->correlation = $covariance/($google_sd*$apple_sd);
 
         # Calculate correlation using stats extension
-        $this->correlation = stats_stat_correlation($this->google_data, $this->yahoo_data);
+        $this->correlation = stats_stat_correlation($this->google_data, $this->apple_data);
     }
     private function setData(){
         $this->google_data = $this->fromDB('google');
-        $this->yahoo_data = $this->fromDB('yahoo');
+        $this->apple_data = $this->fromDB('apple');
     }
     private function fromDB($table){
         #TODO:Unify db parameters in settings file
