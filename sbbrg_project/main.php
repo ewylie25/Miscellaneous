@@ -14,22 +14,22 @@ if (!$success){
     die("Could not generate databases");
 }
 
-print "Open"."\n";
+print "Opening Prices correlation: ";
 $open = new \sbbrg_project\CorrelationCalculation('open');
 $open_corr = $open ->getCorrelation();
 print $open_corr."\n";
 
-print "Close"."\n";
+print "Closing Prices correlation: ";
 $close = new \sbbrg_project\CorrelationCalculation('close');
 $close_corr = $close ->getCorrelation();
 print $close_corr."\n";
 
-print "Low"."\n";
+print "Low Price correlation: ";
 $low = new \sbbrg_project\CorrelationCalculation('low');
 $low_corr = $low->getCorrelation();
 print $low_corr."\n";
 
-print "High"."\n";
+print "High Price correlation: ";
 $high = new \sbbrg_project\CorrelationCalculation('high');
 $high_corr = $high->getCorrelation();
 print $high_corr."\n";
