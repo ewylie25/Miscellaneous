@@ -8,16 +8,34 @@
 
 ####Files:
 
--main.php
--CorrelationCalculator.php
--helper_functions.php
--parameters.json
--CorrelationCalculatiorTest.php
+-main.php  
+-CorrelationCalculator.php  
+-helper_functions.php  
+-parameters.json  
+-CorrelationCalculatiorTest.php  
 
+#####main
 
+Usage:  
+Dependencies:  
+Implementation Notes:  
 
+#####CorrelationCalculator
 
-My SQL $user@'%' with $pass, granted all privileges on test.* used for this script.
+Contains:  
+Dependencies:  
+Implementation Notes:  
+Unit Test: CorrelationCalculatorTest.php (phpunit)  
 
-containing price data from Jan-1-2012 to Feb-29-2012 for GOOG and AAPL, respectively, from Google Finance Historical Prices.
-Returns file contents as string - I believe/hope these are persistent links
+#####helper_functions
+
+Contains:  
+Dependencies:  
+Implementation Notes:  
+Unit Test: N/A  
+
+#####parameters.json
+
+My SQL: user@'%' with password, granted all privileges on database.*   
+
+Data: CSV files containing price data from Jan-1-2012 to Feb-29-2012 for GOOG and AAPL, respectively, from Google Finance Historical Prices. I believe/hope these are persistent links.  
