@@ -27,6 +27,20 @@ Dependencies:
 Implementation Notes:  
 Unit Test: CorrelationCalculatorTest.php (phpunit)  
 
+#####DailyPercentChangeCalculator
+
+Contains:  
+Dependencies:  
+Implementation Notes:  
+Unit Test:  
+
+#####AbstractCalculator
+
+Contains:  
+Dependencies:  
+Implementation Notes:  
+Unit Test:  
+
 #####helper_functions
 
 Contains:  

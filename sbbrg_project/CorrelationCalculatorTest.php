@@ -13,9 +13,11 @@ require_once('CorrelationCalculator.php');
 use sbbrg_project\CorrelationCalculator;
 
 class CorrelationCalculationTest extends \PHPUnit_Framework_TestCase {
+    public $parameters;
 
-    public function testStats(){
-        //
+    public function setUp(){
+        $raw = file_get_contents('parameters.json');
+        $this->parameters = json_decode($raw, true);
     }
     public function testGetCorrelationAll(){
         $expectedResults = array('open' => -0.80021353044614,
@@ -23,7 +25,8 @@ class CorrelationCalculationTest extends \PHPUnit_Framework_TestCase {
                                 'high' => -0.8003163877059,
                                 'low' => -0.789410585227);
         foreach($expectedResults as $column =>$expectedResult){
-            $temp= new CorrelationCalculator($column);
+            $temp= new CorrelationCalculator($this->parameters);
+            $temp->setCorrelation($column, "2012-01-01", "2012-01-31");
             $result = $temp->getCorrelation();
             $this->assertEquals($expectedResult, $result);
         }
