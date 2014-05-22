@@ -10,7 +10,7 @@ namespace sbbrg_project\Test;
 
 require_once('CorrelationCalculator.php');
 
-use sbbrg_project\CorrelationCalculation;
+use sbbrg_project\CorrelationCalculator;
 
 class CorrelationCalculationTest extends \PHPUnit_Framework_TestCase {
 
@@ -23,7 +23,7 @@ class CorrelationCalculationTest extends \PHPUnit_Framework_TestCase {
                                 'high' => -0.8003163877059,
                                 'low' => -0.789410585227);
         foreach($expectedResults as $column =>$expectedResult){
-            $temp= new CorrelationCalculation($column);
+            $temp= new CorrelationCalculator($column);
             $result = $temp->getCorrelation();
             $this->assertEquals($expectedResult, $result);
         }

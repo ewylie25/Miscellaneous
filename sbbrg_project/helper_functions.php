@@ -51,17 +51,18 @@ function generate_database_from_CSV($parameters){
             $lineseparator = $dataset["line delimiter"];
 
             # Create My SQL column definitions for given data set
+            # Following example syntax from http://php.net/manual/en/pdostatement.execute.php
+            # Probably should bind parameters, but I don't see how it could be utilized maliciously as is.
             $definition = "";
             $field_string = "";
-            $param_string = "";
+
             foreach($dataset["fields"] as $field){
                 $definition = $definition." ".$field["name"]." ".$field["type"].",";
                 $field_string = $field_string." ".$field["name"].",";
-                $param_string = $param_string.' :'.$field["name"].",";
             }
             $definition = trim($definition, ',');
             $field_string = trim($field_string, ',');
-            $param_string = trim($param_string, ',');
+            $place_holders = implode(',', array_fill(0, count($dataset["fields"]), '?'));
 
             # Create My SQL table
             $dbh->beginTransaction();
@@ -69,19 +70,7 @@ function generate_database_from_CSV($parameters){
             $dbh->commit();
 
             # Prepare My SQL statement
-            $stmt = $dbh->prepare("INSERT INTO $databasetable ($field_string) VALUES ($param_string)");
-
-            # Bind parameters - there doesn't seem to be a binding for float or date - utilizing default of string.
-            # TODO: Figure out proper way to bind parameters dynamically.
-            //foreach($dataset["fields"] as $field){
-
-           // }
-            $stmt->bindParam(':date', $date);
-            $stmt->bindParam(':open', $open);
-            $stmt->bindParam(':close', $close);
-            $stmt->bindParam(':high', $high);
-            $stmt->bindParam(':low', $low);
-            $stmt->bindParam(':volume', $volume, \PDO::PARAM_INT);
+            $stmt = $dbh->prepare("INSERT INTO $databasetable ($field_string) VALUES ($place_holders)");
 
             # Break up text into lines (string -> array of strings)
             $lines = explode($lineseparator, $csvdata);
@@ -97,14 +86,13 @@ function generate_database_from_CSV($parameters){
                     $line = trim($line," \t");
                     $line = str_replace("\r","",$line);
 
-                    # Break up line by delimiter and assign variable names to each element
-                    list($raw_date, $open, $high, $low, $close, $volume) = explode($fieldseparator, $line);
+                    $params = explode($fieldseparator, $line);
 
                     # Fix date formatting to be accepted by My SQL
-                    $date = strftime("%Y-%m-%d", strtotime($raw_date));
+                    $params[0] = strftime("%Y-%m-%d", strtotime($params[0]));
 
                     # Execute My SQL statement
-                    $stmt->execute();
+                    $stmt->execute($params);
                 } else {
                     # If empty sting - move on
                     continue;

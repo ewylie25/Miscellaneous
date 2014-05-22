@@ -7,17 +7,25 @@
 namespace sbbrg_project;
 
 
-class CorrelationCalculation {
+class CorrelationCalculator {
     public $price_type;
+    public $host;
+    public $database;
+    public $user;
+    public $pass;
     private $correlation;
-    private $google_data;
-    private $apple_data;
+    private $datasets;
+    private $data;
 
-    public function __construct($price_type){
-        # Set column of data to look at
-        $this->price_type = $price_type;
+    public function __construct($parameters){
+        $this->host = $parameters["My SQL"]["host"];
+        $this->database = $parameters["My SQL"]["database"];
+        $this->user = $parameters["My SQL"]["user"];
+        $this->password = $parameters["My SQL"]["password"];
+        $this->datasets = array_keys($parameters["Data"]);
     }
-    public function getCorrelation(){
+    public function getCorrelation($price_type){
+        $this->price_type = $price_type;
         $this->setCorrelation();
         return $this->correlation;
     }
@@ -26,19 +34,17 @@ class CorrelationCalculation {
         $this->setData();
 
         # Calculate correlation using stats extension
-        $this->correlation = stats_stat_correlation($this->google_data, $this->apple_data);
+        $this->correlation = stats_stat_correlation($this->data[0], $this->data[1]);
     }
     private function setData(){
-        $this->google_data = $this->fromDB('google');
-        $this->apple_data = $this->fromDB('apple');
+        for($i=0; $i < count($this->datasets); $i++){
+            $this->data[$i] = $this->fromDB($this->datasets[$i]);
+        }
     }
     private function fromDB($table){
-        #TODO:Unify db parameters in settings file
-        $user = 'auser';
-        $pass = 'apass';
         $temp = array();
         try {
-            $dbh = new \PDO('mysql:host=localhost;dbname=test', $user, $pass);
+            $dbh = new \PDO("mysql:host=$this->host;dbname=$this->database", $this->user, $this->password);
             foreach($dbh->query("SELECT $this->price_type FROM $table WHERE `DATE` BETWEEN '2012-01-01' AND '2012-01-31'") as $value) {
                 array_push($temp, $value[0]);
             }

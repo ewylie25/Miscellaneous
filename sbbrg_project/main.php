@@ -16,21 +16,15 @@ if (!$success){
 }
 
 print "Opening Prices correlation: ";
-$open = new \sbbrg_project\CorrelationCalculation('open');
-$open_corr = $open ->getCorrelation();
+$calc = new \sbbrg_project\CorrelationCalculator($parameters);
+$open_corr = $calc ->getCorrelation('open');
 print $open_corr."\n";
-
 print "Closing Prices correlation: ";
-$close = new \sbbrg_project\CorrelationCalculation('close');
-$close_corr = $close ->getCorrelation();
+$close_corr = $calc ->getCorrelation('close');
 print $close_corr."\n";
-
 print "Low Price correlation: ";
-$low = new \sbbrg_project\CorrelationCalculation('low');
-$low_corr = $low->getCorrelation();
+$low_corr = $calc->getCorrelation('low');
 print $low_corr."\n";
-
 print "High Price correlation: ";
-$high = new \sbbrg_project\CorrelationCalculation('high');
-$high_corr = $high->getCorrelation();
+$high_corr = $calc->getCorrelation('high');
 print $high_corr."\n";
