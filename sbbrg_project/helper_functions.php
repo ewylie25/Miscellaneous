@@ -10,107 +10,91 @@ namespace sbbrg_project;
 
 
 /***
- * Function to generate MySQL database for analysis from CSV files online
- * @param associative array $parameters
- * @return boolean $success
+ * Function to generate MySQL database tables for analysis from CSV files online
+ * @param Database $database
+ * @param associative array $data_set_info
+ * @param string $company_name
  *
- * TODO: Troubleshoot function failure - possible refactor into multiple steps
- * TODO: Rethink Design - only listed as separate function to modularize code - not really necessary
- */
-function generate_database_from_CSV($parameters){
-    #Initialize variable to keep track of status
-    $success = false;
-
-    # Retrieve database parameters as specified in parameters.json
-    $host = $parameters["My SQL"]["host"];
-    $db = $parameters["My SQL"]["database"];
-    $user = $parameters["My SQL"]["user"];
-    $pass = $parameters["My SQL"]["password"];
-
-    # Establish persistent connection to database, test on localhost. Prints error and returns false if fails.
+ * @return boolean $success
+ * */
+function generate_database_from_CSV($database, $data_set_info, $company_name){
+    # Return boolean denoting if code executed error free
+    $success = true;
     try{
-        $dbh = new \PDO("mysql:host=$host;dbname=$db", $user, $pass, array(\PDO::ATTR_PERSISTENT => true));
-        echo "Connected\n";
-    } catch (\PDOException $e){
-        echo "Unable to connect: " . $e->getMessage(). "\n";
-        return $success;
-    }
+        # 1.GENERATING PARAMETERS
+        # Generate parameters for creating table
+        #   $definition -> String of My SQL variable definitions(name and type) generated from field info specified in parameters.json
+        $definition = "";
+        foreach($data_set_info["fields"] as $field){
+            $definition = $definition." ".$field["name"]." ".$field["type"].",";
+        }
+        $definition = trim($definition, ',');
 
-    # Add data to database - close connection at end and if errors
-    try{
-        # DB settings and connection settings and style adapted from PHP Data Objects Manual - https://php.net/manual/en/book.pdo.php
-        $dbh->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        # Generate parameters for writing to table
+        #   $field_separator -> String field delimiter as specified for data set in parameters.json
+        #   $line_separator -> String line delimiter as specified for data set in parameters.json
+        #   $field_string -> String of My SQL variable names generated from field info specified in parameters.json
+        #   $place_holders -> String of '?' placeholders for prepared My SQL statement, number of '?' = number of variables specified in parameters.json
+        $field_separator = $data_set_info["field delimiter"];
+        $line_separator = $data_set_info["line delimiter"];
+        $field_string = "";
+        foreach($data_set_info["fields"] as $field){
+            $field_string = $field_string." ".$field["name"].",";
+        }
+        $field_string = trim($field_string, ',');
+        $place_holders = implode(',', array_fill(0, count($data_set_info["fields"]), '?'));
 
-        # Iterate through each data set and set table name based on which data set being used
-        foreach($parameters["Data"] as $databasetable => $dataset){
-            # Returns contents of data files as string as specified in parameters.json
-            $csvdata = file_get_contents($dataset["url"]);
 
-            # Set up parameters for data processing
-            $fieldseparator = $dataset["field delimiter"];
-            $lineseparator = $dataset["line delimiter"];
+        # 2.RETRIEVING DATA:
+        # Returns contents of data files from url specified in parameters.json
+        #   $csv_data -> String of file contents
+        $csv_data = file_get_contents($data_set_info["url"]);
 
-            # Create My SQL column definitions for given data set
-            # Following example syntax from http://php.net/manual/en/pdostatement.execute.php
-            # Probably should bind parameters, but I don't see how it could be utilized maliciously as is.
-            $definition = "";
-            $field_string = "";
 
-            foreach($dataset["fields"] as $field){
-                $definition = $definition." ".$field["name"]." ".$field["type"].",";
-                $field_string = $field_string." ".$field["name"].",";
-            }
-            $definition = trim($definition, ',');
-            $field_string = trim($field_string, ',');
-            $place_holders = implode(',', array_fill(0, count($dataset["fields"]), '?'));
+        # 3.CREATING TABLE:
+        $database->createTable($company_name, $definition);
 
-            # Create My SQL table
-            $dbh->beginTransaction();
-            $dbh->exec("CREATE TABLE $databasetable ($definition)");
-            $dbh->commit();
 
-            # Prepare My SQL statement
-            $stmt = $dbh->prepare("INSERT INTO $databasetable ($field_string) VALUES ($place_holders)");
+        # 4. WRITING TO TABLE:
+        # Prepare My SQL statement
+        $database->startAddToTable($company_name,$field_string,$place_holders);
 
-            # Break up text into lines (string -> array of strings)
-            $lines = explode($lineseparator, $csvdata);
+        # Break up text into lines
+        #   $lines -> Array of Strings
+        $lines = explode($line_separator, $csv_data);
 
-            # Remove the header - beware indexing is off using this method - there is no longer an element in $lines[0]
-            unset($lines[0]);
+        # Remove the header - beware indexing is off using this method - there is no longer an element in $lines[0]
+        unset($lines[0]);
 
-            # Iterate through lines of csv file contents
-            foreach($lines as $line) {
-                # Make sure the string isn't empty
-                if (!empty($line)){
-                    # remove any artifacts from file formatting
-                    $line = trim($line," \t");
-                    $line = str_replace("\r","",$line);
+        # Iterate through lines of csv file contents
+        #   $line -> String
+        foreach($lines as $line) {
+            # Make sure the string isn't empty
+            if (!empty($line)){
+                # Remove any artifacts from file formatting
+                $line = trim($line," \t");
+                $line = str_replace("\r","",$line);
 
-                    $params = explode($fieldseparator, $line);
+                # Break up line into values
+                #   $params -> Array of Strings
+                $params = explode($field_separator, $line);
 
-                    # Fix date formatting to be accepted by My SQL
-                    $params[0] = strftime("%Y-%m-%d", strtotime($params[0]));
+                # Fix date formatting to be accepted by My SQL
+                $params[0] = strftime("%Y-%m-%d", strtotime($params[0]));
 
-                    # Execute My SQL statement
-                    $stmt->execute($params);
-                } else {
-                    # If empty sting - move on
-                    continue;
-                }
+                # Execute My SQL statement
+                $database->addToTable($params);
+            } else {
+                # If empty sting - move on
+                continue;
             }
         }
-        $success = true;
-        # close database connection, according to user comments both statement as necessary.
-        # TODO: test behavior of disconnection
-        $stmt = null;
-        $dbh = null;
+        # Close My SQL Transaction
+        $database->endAddToTable();
         return $success;
-
-    } catch (\Exception $e){
-        # if error occurs, print, close connection and exit
-        echo "Error: ". $e->getMessage();
-        $stmt = null;
-        $dbh = null;
+    } catch(\Exception $e){
+        $success=false;
+        print "Unable to process data: " . $e->getMessage(). "\n";
         return $success;
     }
 }

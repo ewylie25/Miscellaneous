@@ -5,7 +5,7 @@
  */
 
 namespace sbbrg_project;
-
+require_once('AbstractCalculator.php');
 
 class CorrelationCalculator extends AbstractCalculator {
 
@@ -24,8 +24,8 @@ class CorrelationCalculator extends AbstractCalculator {
         $this->correlation = stats_stat_correlation($this->data[0], $this->data[1]);
     }
     protected function setData(){
-        for($i=0; $i < count($this->datasets); $i++){
-            $this->data[$i] = array_map(function($x){return $x[$this->price_type];} ,$this->fromDB($this->datasets[$i]));
+        for($i=0; $i < count($this->companies); $i++){
+            $this->data[$i] = array_map(function($x){return $x[$this->price_type];} ,$this->fromDB($this->companies[$i]));
         }
     }
 

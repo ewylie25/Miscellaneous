@@ -10,46 +10,32 @@ namespace sbbrg_project;
 
 
 abstract class AbstractCalculator {
-    public $host;
     public $database;
-    public $user;
-    public $pass;
-    public $datasets;
+    protected $companies;
     protected $data;
     protected $price_type;
     protected $start;
     protected $end;
 
-    public function __construct($parameters){
-        $this->host = $parameters["My SQL"]["host"];
-        $this->database = $parameters["My SQL"]["database"];
-        $this->user = $parameters["My SQL"]["user"];
-        $this->password = $parameters["My SQL"]["password"];
-        $this->datasets = array_keys($parameters["Data"]);
-    }
-
-    public function getValue($company, $date, $column){
-        foreach($this->data[$company] as $temp){
-            if ($temp['date'] == $date){
-                return $temp[$column];
-            }
-        }
-        return null;
+    public function __construct($database){
+        $this->database = $database;
     }
 
     abstract protected  function setData();
 
-    protected function fromDB($table){
-        $temp = array();
-        try {
-            $dbh = new \PDO("mysql:host=$this->host;dbname=$this->database", $this->user, $this->password);
-            foreach($dbh->query("SELECT * FROM $table WHERE `DATE` BETWEEN \"$this->start\" AND \"$this->end\"") as $value) {
-               array_push($temp, $value);
+    public function setCompanies($companies){
+        $this->companies = array();
+        foreach ($companies as $company){
+            $exists = $this->database->isTable($company);
+            if (!$exists){
+                die("Company not in database: ".$company."\n");
+            } else{
+                array_push($this->companies,$company);
             }
-            $dbh = null;
-        } catch (\PDOException $e) {
-            print "Error!: " . $e->getMessage() . "\n";
         }
-        return $temp;
+    }
+
+    protected function fromDB($table){
+        return $this->database->getTable($table, $this->start, $this->end);
     }
 } 

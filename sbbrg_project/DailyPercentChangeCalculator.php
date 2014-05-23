@@ -46,8 +46,8 @@ class DailyPercentChangeCalculator extends AbstractCalculator {
         return $temp;
     }
     protected function setData(){
-        for($i=0; $i < count($this->datasets); $i++){
-            $this->data[$this->datasets[$i]] = $this->fromDB($this->datasets[$i]);
+        for($i=0; $i < count($this->companies); $i++){
+            $this->data[$this->companies[$i]] = $this->fromDB($this->companies[$i]);
         }
     }
 
