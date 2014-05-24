@@ -5,9 +5,9 @@
  */
 
 namespace sbbrg_project;
+require_once('Calculator.php');
 
-
-class DailyPercentChangeCalculator extends AbstractCalculator {
+class DailyPercentChangeCalculator extends Calculator {
     private $percentchange;
 
     public function getDailyPercentChange(){
@@ -45,11 +45,4 @@ class DailyPercentChangeCalculator extends AbstractCalculator {
         }
         return $temp;
     }
-    protected function setData(){
-        for($i=0; $i < count($this->companies); $i++){
-            $this->data[$this->companies[$i]] = $this->fromDB($this->companies[$i]);
-        }
-    }
-
-
 } 

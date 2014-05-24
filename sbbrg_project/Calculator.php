@@ -1,19 +1,18 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: liz
- * Date: 5/22/14
- * Time: 11:48 AM
+ * Liz Wylie
+ * May 2014
+ *
  */
 
 namespace sbbrg_project;
 
 
-abstract class AbstractCalculator {
+class Calculator {
     public $database;
     protected $companies;
     protected $data;
-    protected $price_type;
+    protected $type;
     protected $start;
     protected $end;
 
@@ -21,7 +20,11 @@ abstract class AbstractCalculator {
         $this->database = $database;
     }
 
-    abstract protected  function setData();
+    protected  function setData(){
+        for($i=0; $i < count($this->companies); $i++){
+            $this->data[$this->companies[$i]] = $this->fromDB($this->companies[$i]);
+        }
+    }
 
     public function setCompanies($companies){
         $this->companies = array();

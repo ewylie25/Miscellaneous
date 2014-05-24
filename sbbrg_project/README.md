@@ -50,6 +50,6 @@ Unit Test: N/A
 
 #####parameters.json
 
-My SQL: user@'%' with password, granted all privileges on database.*   
+My SQL: user@'%' with password, granted all privileges on database.*  make database first...
 
 Data: CSV files containing price data from Jan-1-2012 to Feb-29-2012 for GOOG and AAPL, respectively, from Google Finance Historical Prices. I believe/hope these are persistent links.  

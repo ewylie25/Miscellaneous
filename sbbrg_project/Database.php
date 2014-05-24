@@ -1,9 +1,12 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: liz
- * Date: 5/23/14
- * Time: 11:11 AM
+ * Liz Wylie
+ * May 2014
+ *
+ * Class for interfacing with My SQL database.
+ *
+ * 
+ *
  */
 
 namespace sbbrg_project;

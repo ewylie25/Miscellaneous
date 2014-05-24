@@ -1,130 +1,158 @@
 <?php
 /**
- * User: liz
- * Date: 5/20/14
+ * Liz Wylie
+ * May 2014
+ *
+ * Contains main method for sbbrg correlation project. Procedure is broken up into seven steps and variables
+ *  are documented in each section of code.
+ *
+ * TODO: Implement Logging
+ * TODO: Stricter Error handling?
+ * TODO: Unit tests...
  *
  * Usage: CLI>php main.php
  * Input: parameters.json (implicit)
  * Output:
  */
 
+/*
+ * Supporting functions and classes in namespace sbbrg_project
+ *      helper_functions.php -> function generate_DB_table_from_URL
+ *      CorrelationCalculator.php -> class CorrelationCalculator
+ *      DailyPercentChangeCalculator.php -> class DailyPercentChangeCalculator
+ *      Database.php -> class Database
+ */
 require 'helper_functions.php';
-require 'AbstractCalculator.php';
 require 'CorrelationCalculator.php';
 require 'DailyPercentChangeCalculator.php';
 require 'Database.php';
 
-# Loading parameters from json file
-#   $raw -> String of parameters.json contents
-#   $parameters -> Associative Array of parameters.json contents (assuming proper json in file, otherwise null)
+/*
+ * 1. Loading parameters from json file
+ *      $raw -> String of parameters.json contents
+ *      $parameters -> Associative Array of parameters.json contents (assuming proper json in file, otherwise null)
+ */
+
 $raw = file_get_contents('parameters.json');
 $parameters = json_decode($raw, true);
 
-# Connect to specified database
-#   $database -> Database set using My SQL parameters in parameters.json
+/*
+ * 2. Connect to specified database
+ *      $database -> Database set using My SQL parameters in parameters.json
+ */
+
 $database = new \sbbrg_project\Database($parameters["My SQL"]);
 $database->connect();
 
-# Generating My SQL database tables from specified data if table does not already exist.
-#   $company -> String of data (company) name specified in parameters.json
-#   $exists -> Boolean denoting if table named for $company already exists in database
-#   $success -> Boolean denoting if generate_database_from_CSV completed without Exception
+/*
+ * 3. Generating My SQL database tables from specified data if table does not already exist.
+ *      $company -> String, data (company) name specified in parameters.json
+ *      $exists -> Boolean, denotes if table named for $company already exists in database
+ *      $success -> Boolean, denotes if generate_database_from_CSV completed without Exception
+ */
+
 foreach(array_keys($parameters["Data"]) as $company){
+    // Check if table exists in database
     $exists = $database->isTable($company);
+    // Generate table if it doesn't work
     if (!$exists){
-        $success = \sbbrg_project\generate_database_from_CSV($database, $parameters["Data"][$company], $company);
+        $success = \sbbrg_project\generate_DB_table_from_URL($database, $parameters["Data"][$company], $company);
         if (!$success){
+            // Quit if cannot load data
             die("Could not load data specified in parameters.json for: ".$company."\n");
         }
     }
 }
 
-# Calculate correlation of prices of Apple and Google Stocks
-#   $correlation_calc -> CorrelationCalculator using $database
+/*
+ * 4. Calculate correlation of prices of Apple and Google Stocks
+ *      $correlation_calc -> CorrelationCalculator using $database
+ *      $correlation -> Float, correlation coefficient calculated using percent daily change between Apple and Google stocks
+ *                      in January 2012
+ */
+
 $correlation_calc = new \sbbrg_project\CorrelationCalculator($database);
 
-# Set companies to use in calculating correlation. This will accept more than two company names, but will only use the first two.
+// Set companies to use in calculating correlation. This will accept more than two company names, but will only use the first two.
 $correlation_calc->setCompanies(array('google', 'apple'));
 
-# Calculate correlation for January and February using opening stock prices
-$correlation_calc->setCorrelation('open', "2012-01-01", "2012-01-31");
-$jan_open_corr = $correlation_calc ->getCorrelation();
-$correlation_calc->setCorrelation('open', "2012-02-01", "2012-02-29");
-$feb_open_corr = $correlation_calc ->getCorrelation();
+// Calculate correlation for January percent daily change
+$correlation_calc->setCorrelation('pdc', "2012-01-01", "2012-01-31");
+$correlation = $correlation_calc ->getCorrelation();
 
-# Calculate correlation for January and February using closing stock prices
-$correlation_calc->setCorrelation('close', "2012-01-01", "2012-01-31");
-$jan_close_corr = $correlation_calc ->getCorrelation();
-$correlation_calc->setCorrelation('close', "2012-02-01", "2012-02-29");
-$feb_close_corr = $correlation_calc ->getCorrelation();
+/*
+ * 5. Build data for table
+ *      $percent_change_calc -> DailyPercentChangeCalculator, uses $database
+ *      $dates -> Array of Strings of business days in date range
+ *      $data -> Associative Array, contains table content
+ *      $day -> String, date
+ *      $apple_percent_change -> Float, the percent change in Apple stock price that day
+ *      $google_closing_price ->05/20/14 Float, the closing price for Google stock that day
+ *      $google_opening_price -> Float, the opening price for Google stock that day
+ *      $apple_closing_price -> Float, the closing price for Apple stock that day
+ *      $expected_google_price -> Float, the expected closing price of Google stock assuming matched with Apple stock's daily percent change that day
+ *      $diff -> Float, absolute difference between actual and expected closing price of Google stock that day
+ *      $one_percent_correlation -> Float, ...
+ *      $is_diff_gt_opc -> Boolean, ...
+ */
 
-# Calculate correlation for January and February using daily low stock prices
-$correlation_calc->setCorrelation('low', "2012-01-01", "2012-01-31");
-$jan_low_corr = $correlation_calc->getCorrelation();
-$correlation_calc->setCorrelation('low', "2012-02-01", "2012-02-29");
-$feb_low_corr = $correlation_calc ->getCorrelation();
-
-# Calculate correlation for January and February using daily high stock prices
-$correlation_calc->setCorrelation('high', "2012-01-01", "2012-01-31");
-$jan_high_corr = $correlation_calc->getCorrelation();
-$correlation_calc->setCorrelation('high', "2012-02-01", "2012-02-29");
-$feb_high_corr = $correlation_calc ->getCorrelation();
-
-# Calculate daily percent change in stock prices for Google and Apple
-#   $percent_change_calc -> DailyPercentChangeCalculator using $database
+// Calculate daily percent change in stock prices for Google and Apple
 $percent_change_calc = new \sbbrg_project\DailyPercentChangeCalculator($database);
 
-# Set companies to use in calculating daily percent change. This will accept and use any number of companies (assuming data in $database).
+// Set companies to use in calculating daily percent change. This will accept and use any number of companies (assuming data in $database).
 $percent_change_calc->setCompanies(array('google', 'apple'));
 
-# Get dates of interest
-#   $date -> Array of Strings of business days in date range
+// Get dates of interest
 $dates = $percent_change_calc->setDateRange("2012-02-01","2012-02-29");
 
-# Build data for table
-#   $data -> Associative Array containing table content
-#   $day -> String date
-#   $apple_percent_change -> Float of the percent change in stock price that day
-#   $google_closing_price
 $data = array();
+// Add data for each business day in February 2012
 foreach($dates as $day){
+    // Get Apple's percent change that day
     $percent_change_calc->setDailyPercentChange('apple', $day);
     $apple_percent_change =  $percent_change_calc->getDailyPercentChange();
-    $googleclose = $database->getValue('google', $day, 'close');
-    $googleopen = $database->getValue('google', $day, 'open');
-    $appleclose = $database->getValue('apple', $day, 'close');
-    $expectedgoog = (1+$apple_percent_change)*$googleopen;
-    $diff = abs($expectedgoog - $googleclose);
-    $onepercentcorr =  0.01*$feb_close_corr;
-    if ($diff > $onepercentcorr){
-        $diffovercorr = true;
+
+    // Calculate the expected price given Apple's percent change
+    $google_opening_price = $database->getValue('google', $day, 'open');
+    $expected_google_price = (1+$apple_percent_change)*$google_opening_price;
+
+    // Data for the table
+    $google_closing_price = $database->getValue('google', $day, 'close');
+    $apple_closing_price = $database->getValue('apple', $day, 'close');
+
+    // Determine if the difference was greater than one percent of the correlation coefficient
+    $diff = abs($expected_google_price - $google_closing_price);
+    $one_percent_correlation =  0.01*$correlation;
+    if ($diff > $one_percent_correlation){
+        $is_diff_gt_opc = true;
     } else{
-        $diffovercorr = false;
+        $is_diff_gt_opc = false;
     }
-    if ($googleclose>$expectedgoog){
+
+    // Color the cells green if less than expected and red if greater than expected
+    if ($google_closing_price>$expected_google_price){
         $color = "#FF0000";
     } else{
         $color = "#00FF00";
     }
-    $data["$day"] = array("google close" => $googleclose,
-                          "apple close" => $appleclose,
-                         "expected google" => $expectedgoog,
+
+    // Build data structure
+    $data["$day"] = array("google close" => $google_closing_price,
+                          "apple close" => $apple_closing_price,
+                          "expected google" => $expected_google_price,
                           "color" => $color,
-                          "Difference Greater than 1% of correlation" =>$diffovercorr);
+                          "Difference Greater than 1% of correlation" =>$is_diff_gt_opc);
 }
 
+/*
+ * 6. Disconnect from the database
+ */
 $database->disconnect();
 
-# TODO: Decide on output - static html page for viewing and dynamic page for server...
-print "January\n";
-print "Opening Prices correlation: ".$jan_open_corr."\n";
-print "Closing Prices correlation: ".$jan_close_corr."\n";
-print "Low Price correlation: ".$jan_low_corr."\n";
-print "High Price correlation: ".$jan_high_corr."\n";
-print "February\n";
-print "Opening Prices correlation: ".$feb_open_corr."\n";
-print "Closing Prices correlation: ".$feb_close_corr."\n";
-print "Low Price correlation: ".$feb_low_corr."\n";
-print "High Price correlation: ".$feb_high_corr."\n";
+/*
+ * 7. Write output file
+ */
 
+print "January\n";
+print "correlation coef: ".$correlation."\n";
 print_r($data);
