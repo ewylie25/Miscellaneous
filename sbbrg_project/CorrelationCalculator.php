@@ -1,7 +1,9 @@
 <?php
 /**
- * User: liz
- * Date: 5/20/14
+ * Liz Wylie
+ * May 2014
+ *
+ *
  */
 
 namespace sbbrg_project;

@@ -5,7 +5,7 @@
  *
  * Class for interfacing with My SQL database.
  *
- * 
+ *
  *
  */
 

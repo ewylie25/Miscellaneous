@@ -8,10 +8,13 @@
 
 ####Files:
 
--main.php  
--CorrelationCalculator.php  
+-main.php
+-Database.php
+-CorrelationCalculator.php
+-DailyPercentChangeCalculator.php
 -helper_functions.php  
--parameters.json  
+-parameters.json
+-Calculator.php
 -CorrelationCalculatiorTest.php  
 
 #####main
@@ -19,6 +22,13 @@
 Usage:  
 Dependencies:  
 Implementation Notes:  
+
+#####Database
+
+Contains:
+Dependencies:
+Implementation Notes:
+Unit Test:
 
 #####CorrelationCalculator
 
@@ -34,7 +44,7 @@ Dependencies:
 Implementation Notes:  
 Unit Test:  
 
-#####AbstractCalculator
+#####Calculator
 
 Contains:  
 Dependencies:  
