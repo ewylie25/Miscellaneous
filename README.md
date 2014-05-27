@@ -20,3 +20,6 @@ Miscellaneous, single file scripts from various projects.
 ####dump_chemical_database.py
 Used to generate .json files of chunks of the database. Useful for prep for running jobs on cluster or various other computers that may or may not have direct access to database.
 
+---
+### SBBRG Project:
+PHP/My SQL/HTML scripting task. See README.md in directory.
