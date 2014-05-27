@@ -155,52 +155,85 @@ $database->disconnect();
 
 /*
  * 7. Write output file
- * TODO: Integrate code into writing content, it would be more efficient for this application.
+ * - $content -> string, HTML content
+ * - $filename -> string, HTML file name
+ * - $success -> bool, denoting if write to file worked
+ * TODO: Integrate code into writing content, it would be more efficient for this application. Maybe use DOM.
  */
-// Start of file
-$content = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">';
+// HTML - uses a default style sheet I've used before
+$content = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Output page from main.php in SBBRG Correlation Project" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="Liz Wylie" />
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+        <title>Correlation Project</title>
+    </head>
+    <div id="wrapper">
+        <div id="header">
+            <h2>SBB Research Group Project 1</h2>
+        </div>
+        <body>
+            <div id="content">
+                <h3>Part 1</h3>
+                <p>
+                    January correlation coefficient calculated using percent daily change is '.round($correlation, 4).'
+                </p>
+                <h3>Part 2</h3>
+                <p>
+                    I added all of the values asked to be calculated because I thought the prompt was ambiguous. Red denotes Actual GOOG price was greater than expected and Green denotes it was less than expected.
+                </p>
+                <table>
+                    <tr>
+                        <td>Date</td>
+                        <td>APPL Close</td>
+                        <td>GOOG Close</td>
+                        <td>Expected GOOG Close</td>
+                        <td>GOOG Difference</td>
+                        <td>Greater than 1% Corr</td>
+                    </tr>';
 
-// File Data - uses a default style sheet I've used before
-$content .= '<head><meta http-equiv="content-type" content="text/html; charset=utf-8" /><meta name="description" content="Output page from main.php in SBBRG Correlation Project" />
-<meta name="keywords" content="" /><meta name="author" content="Liz Wylie" /><link rel="stylesheet" type="text/css" href="style.css" media="screen" />
-<title>Correlation Project</title></head>';
-
-// Header
-$content .= '<div id="wrapper"><div id="header"><h2>SBB Research Group Project 1</h2></div>';
-
-// Body
-$content .= '<body><div id="content">';
-
-// Part 1
-$content .= '<h3>Part 1</h3><p>January correlation coefficient calculated using percent daily change is '.round($correlation, 3).'</p>';
-
-// Part 2
-$content .="<h3>Part 2</h3><p>I added all of the values asked to be calculated because I thought the prompt was ambiguous. Red denotes Actual GOOG price was greater than expected and Green denotes it was less than expected.</p>";
-$content.= '<table><tr><td>Date</td><td>APPL Close</td><td>GOOG Close</td><td>Expected GOOG Close</td><td>GOOG Difference</td><td>Greater than 1% Corr</td></tr>';
 foreach($data as $d){
-    $content .= '<tr>';
-    $content .='<td>'.$d["date"].'</td>';
-    $content .='<td>'.$d["apple close"].'</td>';
-    $content .='<td>'.$d["google close"].'</td>';
-    $content .='<td style="background-color:'.$d['color'].'">'.round($d["expected google"], 3).'</td>';
-    $content .='<td>'.round($d["difference"], 3).'</td>';
-    $content .='<td>'.$d["Difference Greater than 1% of correlation"].'</td>';
-    $content .= '</tr>';
+    $content .= '
+                       <tr>';
+    $content .='
+                            <td>'.$d["date"].'</td>';
+    $content .='
+                            <td>'.$d["apple close"].'</td>';
+    $content .='
+                            <td>'.$d["google close"].'</td>';
+    $content .='
+                            <td style="background-color:'.$d['color'].'">'.round($d["expected google"], 3).'</td>';
+    $content .='
+                            <td>'.round($d["difference"], 3).'</td>';
+    $content .='
+                            <td>'.$d["Difference Greater than 1% of correlation"].'</td>';
+    $content .= '
+                       </tr>';
 }
-//Part 3
-$content .= "</table><h3>Part 3</h3><p>The data URLs are links to CSV files containing price data from Jan-1-2012 to Feb-29-2012 for GOOG and AAPL from Google Finance Historical Prices. I believe/hope these are persistent links. I worked on a 64-bit Ubuntu 12.04 LTS desktop using a php 5.5 interpreter from ppa:ondrej/php5 and My SQL 5.5. As setup, I created the test database. I created a auser@'%' with password, and  granted all privileges on test.*. I can provide more information if necessary.</p>";
-
-// Ending
-$content .='</div><div id="footer"><p><a href="https://github.com/ewylie25/Miscellaneous/tree/master/sbbrg_project">See it on GitHub</a></p></div></div></body></html>';
+$content .= '
+                </table>
+                <h3>Part 3</h3>
+                <p>
+                    The data URLs are links to CSV files containing price data from Jan-1-2012 to Feb-29-2012 for GOOG and AAPL from Google Finance Historical Prices. I believe/hope these are persistent links. I worked on a 64-bit Ubuntu 12.04 LTS desktop using a php 5.5 interpreter from ppa:ondrej/php5 and My SQL 5.5. As setup, I created the test database. I created a auser@\'%\' with password, and  granted all privileges on test.*. I can provide more information if necessary.
+                </p>
+            </div>
+            <div id="footer">
+                <p>
+                    <a href="https://github.com/ewylie25/Miscellaneous/tree/master/sbbrg_project">See it on GitHub</a>
+                </p>
+            </div>
+        </body>
+    </div>
+</html>';
 
 // Set file name
 $filename ="output.html";
-// Delete previous version
-@unlink($filename);
-// Open file for writing and write to file
-$handle = fopen($filename, 'w+');
-if ($handle)
-{
-    if (!fwrite($handle, $content))
-        die("cant' write");
+
+// Write to file
+$success = file_put_contents($filename, $content);
+if (!$success){
+    die("Failed to write HTML file.");
 }
