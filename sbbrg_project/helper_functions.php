@@ -33,11 +33,11 @@ function generate_DB_table_from_URL($database, $data_set_info, $company_name){
 
         /*
          * 1.GENERATING PARAMETERS
-         *      $definition -> String, My SQL variable definitions(name and type) generated from field info specified in parameters.json
-         *      $field_separator -> String, field delimiter as specified for data set in parameters.json
-         *      $line_separator -> String, line delimiter as specified for data set in parameters.json
-         *      $field_string -> String, My SQL variable names generated from field info specified in parameters.json
-         *      $place_holders -> String, '?' placeholders for prepared My SQL statement, number of '?' = number of variables specified in parameters.json
+         * - $definition -> String, My SQL variable definitions(name and type) generated from field info specified in parameters.json
+         * - $field_separator -> String, field delimiter as specified for data set in parameters.json
+         * - $line_separator -> String, line delimiter as specified for data set in parameters.json
+         * - $field_string -> String, My SQL variable names generated from field info specified in parameters.json
+         * - $place_holders -> String, '?' placeholders for prepared My SQL statement, number of '?' = number of variables specified in parameters.json
          */
 
         // Generate parameters for creating table
@@ -59,7 +59,7 @@ function generate_DB_table_from_URL($database, $data_set_info, $company_name){
 
         /*
          * 2.RETRIEVING DATA:
-         *      $csv_data -> String of file contents
+         * - $csv_data -> String of file contents
          */
 
         // Returns contents of data files from url specified in parameters.json
@@ -72,9 +72,9 @@ function generate_DB_table_from_URL($database, $data_set_info, $company_name){
 
         /*
          * 4. WRITING TO TABLE:
-         *      $lines -> Array of Strings
-         *      $line -> String
-         *      $params -> Array of Strings
+         * - $lines -> Array of Strings
+         * - $line -> String
+         * - $params -> Array of Strings
          */
 
         // Prepare My SQL statement
