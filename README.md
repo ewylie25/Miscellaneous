@@ -15,6 +15,11 @@ Scripts to generate data files for yield prediction project/paper.
 Generates json file and counts of the results of the balancing code without taking into consideration entry data quality. Requires integer input denoted the number of entries to tes. Tool to explore how the code could be improved.
 
 ---
+
+### Chemical Representations:
+Exploratory scripts from work around applying machine learning to chemical and reaction data for chematica stuff.
+
+---
 ### Scripts:
 Miscellaneous, single file scripts from various projects/tasks.
 ####dump_chemical_database.py
