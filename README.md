@@ -12,7 +12,7 @@ Scripts to generate data files for yield prediction project/paper.
 #####Tool:
 `python eval_error_script.py input`
 
-Generates json file and counts of the results of the balancing code without taking into consideration entry data quality. Requires integer input denoted the number of entries to tes. Tool to explore how the code could be improved.
+Generates json file and counts of the results of the balancing code without taking into consideration entry data quality. Requires integer input denoted the number of entries to test. Tool to explore how the code could be improved.
 
 ---
 
@@ -27,6 +27,8 @@ Used to generate .json files of chunks of the database. Useful for prep for runn
 ####db_text_to_json.py
 ####generate_htmlpage_retrodb.py
 Used to create html page of information from retro database. Beware - generates many-many png files. Very simplistic.
+####generate_assets.sql
+####trend_to_usable_csv.py
 
 ---
 ### SBBRG Project:
