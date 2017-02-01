@@ -37,3 +37,7 @@ PHP/My SQL/HTML scripting task. See README.md in directory.
 ---
 ### Excel PoC Work:
 Simple C# WinForm app reading in data from a specially formatted excel file.
+
+---
+### Web Test Utility:
+Simple C# utility to make web requests - adapted from client code in WondeTadesse/WebAPI_Thoughts
