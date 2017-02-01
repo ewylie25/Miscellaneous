@@ -33,3 +33,7 @@ Used to create html page of information from retro database. Beware - generates 
 ---
 ### SBBRG Project:
 PHP/My SQL/HTML scripting task. See README.md in directory.
+
+---
+### Excel PoC Work:
+Simple C# WinForm app reading in data from a specially formatted excel file.
